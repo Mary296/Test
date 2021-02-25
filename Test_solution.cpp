@@ -6,12 +6,11 @@
 
 std::vector<std::vector<int>> generate(size_t const n) {
 	std::vector<std::vector<int>> result;
-
 	std::random_device random_device;
 	std::default_random_engine random_engine(random_device());
 	std::uniform_int_distribution<size_t> random_generator;
-
 	std::unordered_set<size_t> sizes;
+	
 	while (sizes.size() != n)
 		sizes.insert(random_generator(random_device));
 
@@ -32,6 +31,7 @@ std::vector<std::vector<int>> generate(size_t const n) {
 			std::sort(vector.begin(), vector.end(),
 				[](int left, int right) { return left > right; });
 	}
+	
 	return result;
 }
 	
