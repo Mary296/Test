@@ -18,11 +18,10 @@ std::vector<std::vector<int>> generate(size_t const n) {
 	for (uint8_t size : sizes)
 		result.emplace_back(size);
 
-	for (size_t index = 0; index < result.size(); index++) {
-		for (size_t ind = 0; ind < result[index].size(); ind++) {
-			result[index][ind] = rand();
+	for (size_t i = 0; i < result.size(); i++) {
+		for (size_t j = 0; j < result[index].size(); j++) {
+			result[i][j] = rand();
 		}
-
 	}
 
 	for (size_t index = 0; index < result.size(); index++) {
@@ -30,7 +29,6 @@ std::vector<std::vector<int>> generate(size_t const n) {
 		if (index % 2 == 0)
 			std::sort(vector.begin(), vector.end());
 		else
-
 			std::sort(vector.begin(), vector.end(),
 				[](int left, int right) { return left > right; });
 	}
@@ -41,12 +39,11 @@ int main() {
 
 	int n;
 	std::cin >> n;
+	auto result = generate(n);
 
-	auto res = generate(n);
-
-	for (size_t index = 0; index < res.size(); index++) {
-		for (size_t ind = 0; ind < res[index].size(); ind++) {
-			std::cout << res[index][ind] << ' ';
+	for (size_t i = 0; i < result.size(); i++) {
+		for (size_t j = 0; j < result[index].size(); j++) {
+			std::cout << result[i][j] << ' ';
 		}
 		std::cout <<'\n';
 	}
